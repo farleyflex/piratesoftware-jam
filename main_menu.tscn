@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://s6sk7t5v4d0n"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_h6ohm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxkb6"]
+font_size = 100
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(-39, -26)
+script = ExtResource("1_h6ohm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 171.0
+offset_right = 1021.0
+offset_bottom = 308.0
+theme_type_variation = &"HeaderLarge"
+text = "Groundhog's Day"
+label_settings = SubResource("LabelSettings_bxkb6")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 453.0
+offset_top = 378.0
+offset_right = 717.0
+offset_bottom = 463.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

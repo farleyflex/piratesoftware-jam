@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://nk4o1ut34wpa"]
+
+[ext_resource type="Texture2D" uid="uid://clvt1i4bgtdr3" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_transparent.png" id="1_4rl2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h7e5"]
+size = Vector2(14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1rqf"]
+atlas = ExtResource("1_4rl2b")
+region = Rect2(323, 34, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_402ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1rqf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6h7e5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_402ru")

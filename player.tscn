@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr5t5e6eso5da"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_duwx2"]
+[ext_resource type="Texture2D" uid="uid://csw16s36d1nkn" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_transparent_packed.png" id="2_sfn0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1hbt"]
+atlas = ExtResource("2_sfn0g")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdtym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1hbt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o637m"]
+radius = 3.0
+height = 8.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_duwx2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cdtym")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_o637m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
